@@ -79,3 +79,6 @@ We want our hiring managers to be able to:
 -   add a comment on an application
 -   update application status and comment
 -   [Bonus] easily identify opened vacancies
+
+Please let me know if you have any questions
+Martin de la Taille: martin@flatchr.io>
