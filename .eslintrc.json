@@ -1,0 +1,21 @@
+{
+  "parser": "babel-eslint",
+  "env": {
+    "browser": true,
+    "node": true
+  },
+  "rules": {
+    "no-console": "off",
+    "comma-dangle": "off",
+    "react/jsx-filename-extension": "off",
+    "indent": [
+      "warn",
+      4
+    ],
+    "react/jsx-indent": [
+      2,
+      4
+    ],
+    "no-plusplus": "off"
+  }
+}
