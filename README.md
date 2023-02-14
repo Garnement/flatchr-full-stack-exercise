@@ -1,17 +1,48 @@
-# full-stack-exercise
+# Hello 👋
 
 ## Introduction
 
-This is a simple full stack [React](https://reactjs.org/) application with a [Node.js](https://nodejs.org/en/) and [Express](https://expressjs.com/) backend.
-Client side code is written in React and the backend API is written using Express.
-Database is handled by [better-sqlite3](https://github.com/JoshuaWise/better-sqlite3) library for SQLite3 in Node.js.
-[Bootstrap](https://getbootstrap.com/docs/4.5/components/forms/) is imported to quickly design components.
+Te voilà prêt.e à passer le test technique de chez Flatchr.
+Le test que nous avons concu est volontairement ambitieux par rapport au
+temps imparti et nous en avons pleinement conscience.
 
-### Development mode
+Nous allons pouvoir évaluer tes compétences en front mais aussi en back.
 
-In the development mode, we will have 2 servers running. The front end code will be served by the [webpack dev server](https://webpack.js.org/configuration/dev-server/) which helps with hot and live reloading. The server side Express code will be served by a node server using [nodemon](https://nodemon.io/) which helps in automatically restarting the server whenever server side code changes.
+Durant toute la phase du test, tu seras accompagné.e par un des développeurs de l'équipe.
+Son rôle est de s'assurer que tu puisses effectuer le test dans les meilleures conditions.
 
-## Quick Start
+**La durée du test est d'1h30.**
+
+## Stack technique
+
+**Pour la partie front:**
+- React.js
+- Bootstrap
+
+**Pour la partie back:**
+- Node.js
+- Express
+- [Better-sqlite3](https://github.com/WiseLibs/better-sqlite3)
+
+## Pré-requis
+
+Afin de pouvoir réaliser le test tu auras besoin :
+
+- d'avoir node installé
+- un compte git et que celui-ci soit configuré pour l'utiliser
+- ton éditeur de code préféré
+
+## Configuration du test technique
+
+### Récupérer le projet
+
+Tu dois d'abord récupérer le projet qui est hébergé sur [Gitlab](https://gitlab.com/flatchr/public/full-stack-exercise.git)
+
+### Setup du projet
+
+Le projet repose sur deux serveurs.
+Côté front nous avons [webpack dev server](https://webpack.js.org/configuration/dev-server/) qui nous permet le *hot and live reloading*.
+Côté back, c'est un serveur node qui est utilisé avec [nodemon](https://nodemon.io/) qui propose les mêmes mécaniques de rechargement lorsque le code est modifié.
 
 ```bash
 # Go inside the directory
@@ -27,19 +58,22 @@ npm run setup-db
 npm run dev
 ```
 
-## Documentation
+### Documentation
 
-### Folder Structure
+Structure des dossiers:
 
-All the source code will be inside **src** directory. Inside src, there is client and server directory. All the frontend code (react, css, js and any other assets) will be in client directory. Backend Node.js/Express code will be in the server directory.
+Dans le dossier **src** nous avons deux dossiers principaux:
+- **client** : utilisé pour la partie front end
+- **server** : utilisé pour la partie back end
 
-### Webpack dev server
 
-[Webpack dev server](https://webpack.js.org/configuration/dev-server/) is used along with webpack. It provides a development server that provides live reloading for the client side code. This should be used for development only.
+[Webpack dev server](https://webpack.js.org/configuration/dev-server/)
 
-The devServer section of webpack.config.js contains the configuration required to run webpack-dev-server which is given below.
+Webpack dev server nous fournit un serveur de developpement avec le rechargement automatique de la page dès que le code est modifié sur la partie front du projet.
 
-```javascript
+La partie de configuration `devServer` contient la configuration requise requise pour l'execution du serveur.
+
+```js
 devServer: {
     port: 3000,
     open: true,
@@ -49,36 +83,55 @@ devServer: {
 }
 ```
 
-[**Port**](https://webpack.js.org/configuration/dev-server/#devserver-port) specifies the Webpack dev server to listen on this particular port (3000 in this case).
-When [**open**](https://webpack.js.org/configuration/dev-server/#devserver-open) is set to `true`, it will automatically open the home page on startup.
-[**Proxying**](https://webpack.js.org/configuration/dev-server/#devserver-proxy) URLs can be useful when we have a separate API backend development server and we want to send API requests on the same domain. In our case, we have a Node.js/Express backend where we want to send the API requests to.
+**port** : définit le port à utiliser
 
-### Database
+**open** : si définit à `true` la page d'accueil va automatiquement s'ouvrir
 
-After running `npm run setup-db`, a `.db` file is created in `/src/server/database` directory. You can use [sqlite viewer](https://inloop.github.io/sqlite-viewer/) to visualize data.
+**proxy** : utile dans le cas où nous effectuons des requêtes cross domain
+
+
+### Base de données
+
+Après avoir executé :
+
+```bash
+npm run setup-db
+```
+
+Un fichier `.db` est créé dans `/src/server/database`
+
+Il est possible, si tu le souhaites, de visualiser les données de la base grâce à [SQLite viewer](https://inloop.github.io/sqlite-viewer/)
 
 ![data model](./data-model.png "Data model")
 
-> `vacancy.contract_type` must be one of `['cdi', 'cdd', 'internship']`
+`vacancy.contract_type` doit être de type `['cdi', 'cdd', 'internship']`
 
-> `vacancy.status` must be one of `['opened', 'closed']`
+`vacancy.status` doit être de type `['opened', 'closed']`
 
-> `application.status` must be one of `['to_call', 'to_meet', 'recruited', 'abandoned']`
+`application.status` doit être de type `['to_call', 'to_meet', 'recruited', 'abandoned']`
 
-## Just tell me what to do!
 
-### Initial state
+## Dis moi ce que je dois faire !
 
-First time you run the project, you should see a select input to choose which vacancy you want to deep dive in. Once selected, a list of applications should be displayed.
 
-### Your job
+Pour la partie front, des visuels sont disponibles sur [Figma](https://www.figma.com/file/kRdPJTVUXNLOcIpLO360p9/Flatchr---Test-2023?node-id=0%3A1) pour t'aider si tu manques d'inspiration !
 
-We want our hiring managers to be able to:
+Voilà tes objectifs pour ton test technique :
 
--   see applications in kanban using status as column
--   add a comment on an application
--   update application status and comment
--   [Bonus] easily identify opened vacancies
+- [ ] Lancer le projet
 
-Please let me know if you have any questions
-Martin de la Taille: martin@flatchr.io>
+**Pour la partie Front**
+- [ ] Réaliser un Kanban composé de **4 colonnes**
+- [ ] Réaliser une carte par candidat, sur la carte doivent figurer les informations suivantes : Nom, prénom, email, date et un select pour déplacer le candidat.
+- [ ] Le select pour déplacer le candidat doit permettre de choisir une colonne vers lequel affecter le candidat
+
+**Pour la partie API**
+- [ ] Ajouter un candidat - il est possible de le faire via Postman pour réaliser cette partie
+- [ ] Déplacer un candidat
+
+
+## Livraison du test
+---
+Pour nous rendre ton test technique, tu dois le faire sous forme de merge request sur Gitlab.
+
+Nous te souhaitons bon courage !
