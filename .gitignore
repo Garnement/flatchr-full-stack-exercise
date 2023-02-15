@@ -48,3 +48,6 @@ Thumbs.db
 *.mov
 *.wmv
 *.db
+
+# VScode folder
+.vscode
