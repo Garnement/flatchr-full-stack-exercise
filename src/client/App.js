@@ -1,55 +1,60 @@
 import React, { useEffect, useState } from 'react';
-import './app.css';
-import ApplicationList from './components/ApplicationList';
+import { Route, Routes } from "react-router-dom";
 
-export default function App() {
-    const [selectedVacancy, setSelectedVacancy] = useState(null);
-    const [vacancies, setVacancies] = useState([]);
+// import Dashboard from './components/Kanban';
+import HomePage from './components/HomePage';
+import NavigationBar from './components/NavigationBar';
+import NotFound from './components/NotFound';
+import Kanban from './components/Kanban';
 
-    useEffect(() => {
-        fetch('/api/vacancies')
-            .then(res => res.json())
-            .then(res => setVacancies(res));
-    }, []);
+import './styles/app.css';
 
-    const getVacancy = (event) => {
-        const vacancyId = event.target.value;
-        if (!vacancyId) {
-            setSelectedVacancy(null);
-            return;
-        }
-        fetch(`/api/vacancy/${vacancyId}`)
-            .then(res => res.json())
-            .then(vacancy => setSelectedVacancy(vacancy))
-            .catch(() => setSelectedVacancy(null));
-    };
+const API_URL = process.env.API_URL;
 
-    return (
-        <div>
-            <h1>Dashboard</h1>
+const App = () => {
+  const [ selectedVacancy, setSelectedVacancy ] = useState(null);
+  const [ vacancies, setVacancies ] = useState([]);
 
-            <div className="form-group">
-                <label htmlFor="vacancy-id">
-                    Select vacancy
+  useEffect(() => {
+    fetch(`${API_URL}/api/vacancies`)
+      .then(res => res.json())
+      .then(res => setVacancies(res));
+  }, []);
 
-                    <select name="vacancy-id" id="vacancy-id" className="form-control" onChange={getVacancy}>
-                        <option value="" />
-                        {vacancies && vacancies.map(vacancy => (
-                            <option key={vacancy.id} value={vacancy.id}>
-                                {vacancy.title}
-                            </option>
-                        ))}
-                    </select>
-                </label>
-            </div>
+  const getVacancy = event => {
+    const vacancyId = event.target.value;
 
-            {selectedVacancy && (
-                <div>
-                    <h2>{selectedVacancy.title}</h2>
-                </div>
-            )}
+    if (!vacancyId) {
+      setSelectedVacancy(null);
 
-            {selectedVacancy && <ApplicationList applications={selectedVacancy.applications} />}
-        </div>
-    );
-}
+      return;
+    }
+
+    fetch(`${API_URL}/api/vacancy/${vacancyId}`)
+      .then(res => res.json())
+      .then(vacancy => setSelectedVacancy(vacancy))
+      .catch(() => setSelectedVacancy(null));
+  };
+
+  return (
+    <NavigationBar>
+      <Routes>
+        <Route path="/" element={
+          <HomePage />
+        } />
+        <Route path="/kanban" element={
+          <Kanban
+            getVacancy={getVacancy}
+            selectedVacancy={selectedVacancy}
+            vacancies={vacancies}
+          />
+        } />
+        <Route path="*" element={
+          <NotFound />
+        } />
+      </Routes>
+    </NavigationBar>
+  );
+};
+
+export default App;

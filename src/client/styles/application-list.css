@@ -1,0 +1,9 @@
+.application-list {
+  height: calc(100vh - 254px);
+  overflow-y: auto;
+}
+
+.application {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
