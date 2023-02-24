@@ -2,6 +2,7 @@ import PropTypes from 'prop-types';
 import React from "react";
 import { useTranslation } from 'react-i18next';
 import ApplicationList from "./ApplicationList";
+import KanbanList from './KanbanList';
 
 const Dashboard = ({
   getVacancy = () => {},
@@ -43,7 +44,8 @@ const Dashboard = ({
         </>
       )}
 
-      {selectedVacancy && <ApplicationList applications={selectedVacancy.applications} />}
+      {/* {selectedVacancy && <ApplicationList applications={selectedVacancy.applications} />} */}
+      {selectedVacancy && <KanbanList applications={selectedVacancy.applications} />}
     </div>
   );
 };
