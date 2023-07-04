@@ -1,12 +1,13 @@
 {
     "app": {
-      "selectVacancy": "Sélectionner une offre :",
-      "vacancies": "Offres",
-      "welcomeText": "Bienvenue au test technique pour le poste de développeur full-stack. \n Ce test vise à évaluer vos compétences en matière de développement web, en particulier en ce qui concerne le développement de nouvelles features et la résolution de bugs. \n Nous espérons que ce test vous permettra de mettre en avant vos connaissances et votre expérience, ainsi que votre capacité à travailler en équipe et à résoudre des problèmes de manière créative. \n Nous vous souhaitons bonne chance dans votre participation à ce test.",
-      "flatchr" : "Flatchr",
-      "home": "Accueil",
-      "kanban": "Kanban",
-      "error": "Erreur 404",
-      "errorText": "Cette page n'est pas définie dans l'application."
+        "selectVacancy": "Sélectionner une offre :",
+        "vacancies": "Offres",
+        "welcomeText": "Bienvenue au test technique pour le poste de développeur full-stack. \n Ce test vise à évaluer vos compétences en matière de développement web, en particulier en ce qui concerne le développement de nouvelles features et la résolution de bugs. \n Nous espérons que ce test vous permettra de mettre en avant vos connaissances et votre expérience, ainsi que votre capacité à travailler en équipe et à résoudre des problèmes de manière créative. \n Nous vous souhaitons bonne chance dans votre participation à ce test.",
+        "flatchr": "Flatchr",
+        "home": "Accueil",
+        "Dashbord": "Dashbord",
+        "kanban": "Kanban",
+        "error": "Erreur 404",
+        "errorText": "Cette page n'est pas définie dans l'application."
     }
 }
