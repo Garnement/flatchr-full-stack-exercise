@@ -29,7 +29,6 @@ const App = () => {
 
       return;
     }
-
     fetch(`${API_URL}/api/vacancy/${vacancyId}`)
       .then(res => res.json())
       .then(vacancy => setSelectedVacancy(vacancy))
